@@ -80,10 +80,10 @@ class QLearning:
         for i in range(100):
             print(f"epoch {i}")
             while True:
+                action = self._select_action()
                 if self._state == "final":
                     print(f"time cost {self._time}")
                     break
-                action = self._select_action()
                 print(action)
                 self._step(action)
             self._reset()
