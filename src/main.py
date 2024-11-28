@@ -47,7 +47,7 @@ class QLearning:
         # update process
         if self._state == "fighting":
             self._process += 1 / (self._people + 1)  # avoid zero division
-            if self._process >= 0.2:
+            if self._process >= 0.5:
                 self._state = "final"
                 return
 
