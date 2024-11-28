@@ -39,12 +39,12 @@ class QLearning:
             self.process = 0
 
         if self.state == "fighting":
-            self.process += 1 / self.people
+            self.process += 1 / (self.people + 1) # avoid zero division
 
         if self.state == "waiting":
-            self.people -= 3
+            self.people = max(self.people - 5 ,0)
         elif self.state == "fighting":
-            self.people -= 1
+            self.people = max(self.people - 1 ,0)
 
         if self.process >= 0.2:
             self.next_state = "final"
