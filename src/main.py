@@ -57,6 +57,12 @@ class QLearning:
 
         self.state = self.next_state
 
+    def reset(self):
+        self.time = 0
+        self.state = "waiting"
+        self.people = 25
+        self.process = 0
+
     def train(self):
         for i in range(100):
             print(f"epoch {i}")
@@ -67,10 +73,7 @@ class QLearning:
                 action = self.select_action()
                 print(action)
                 self.step(action)
-            self.time = 0
-            self.state = "waiting"
-            self.people = 25
-            self.process = 0
+            self.reset()
 
 
 def main():
